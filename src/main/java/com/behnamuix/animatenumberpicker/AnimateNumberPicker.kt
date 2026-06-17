@@ -1,4 +1,4 @@
-package com.behnamuix.animatenumberpicker
+package com.behnamuix.spygame.ui.navigation.screens.configGame.components
 
 import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.animateDp
