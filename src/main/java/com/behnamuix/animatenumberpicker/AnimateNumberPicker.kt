@@ -58,30 +58,22 @@ fun OtpInputComp(
 ) {
     val listNumber = list
     val internalIndex = count.toIntOrNull() ?: 0
-
     var stateTop by remember { mutableStateOf(false) }
     var stateDown by remember { mutableStateOf(false) }
-
     val scrollState = rememberLazyListState(initialFirstVisibleItemIndex = internalIndex)
     val scope = rememberCoroutineScope()
-
-
     val transitionErrorColor = updateTransition(error, label = "Error")
     val errorColor by transitionErrorColor.animateColor(label = "Color") {
         if (it) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.outlineVariant
     }
-
     val transitionTop = updateTransition(stateTop, label = "Top")
     val transitionDown = updateTransition(stateDown, label = "Down")
-
     val rotation by transitionTop.animateFloat(label = "Rotation") {
         if (it) -8f else 0f
     }
-
     val transformTop by transitionTop.animateDp(label = "TopDp") {
         if (it) 12.dp else 0.dp
     }
-
     val transformDown by transitionDown.animateDp(label = "DownDp") {
         if (it) 12.dp else 0.dp
     }
@@ -154,7 +146,6 @@ fun OtpInputComp(
                         )
                     }
                 }
-
                 // ماسک گرادینت بالا و پایین (هماهنگ با تم جاری دستگاه)
                 Box(
                     modifier = Modifier
@@ -173,8 +164,6 @@ fun OtpInputComp(
                 )
             }
         }
-
-
         IconButton(
             modifier = Modifier
                 .size(48.dp)
